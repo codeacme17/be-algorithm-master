@@ -1,6 +1,6 @@
 /**
  *  206. 反转链表
- *  https://leetcode.cn/problems/reverse-linked-list/
+ *  https://leetcode.com/problems/reverse-linked-list/
  *
  *  思路：
  *  需要准备两个指针分别指向当前节点cur和上一个节点pre，和一个备用链表temp

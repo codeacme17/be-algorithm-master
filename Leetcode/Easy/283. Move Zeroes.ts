@@ -1,6 +1,6 @@
 /**
  *  283.  移动零
- *  https://leetcode.cn/problems/move-zeroes/
+ *  https://leetcode.com/problems/move-zeroes/
  *
  *  思路：
  *  需要一个指针i,和一个变量zeroLength来存储已移动的零的个数

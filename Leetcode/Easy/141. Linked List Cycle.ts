@@ -1,6 +1,6 @@
 /**
  *  141. 环形链表
- *  https://leetcode.cn/problems/linked-list-cycle/
+ *  https://leetcode.com/problems/linked-list-cycle/
  *
  *  思路：
  *  首先需要准备一个hash table来存储已遍历的Node

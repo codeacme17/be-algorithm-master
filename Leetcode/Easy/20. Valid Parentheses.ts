@@ -1,6 +1,6 @@
 /**
  *  20. 有效括号
- *  https://leetcode.cn/problems/valid-parentheses/
+ *  https://leetcode.com/problems/valid-parentheses/
  *
  *  思路：
  *  将括号维护到map中，将左括号作为key，右括号作为value

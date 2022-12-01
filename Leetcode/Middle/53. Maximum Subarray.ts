@@ -1,6 +1,6 @@
 /**
  *  53. 最大子数组和
- *  https://leetcode.cn/problems/maximum-subarray/
+ *  https://leetcode.com/problems/maximum-subarray/
  *
  *  思路：
  *  动态规划，dp[i] 表示 0->i 的和
