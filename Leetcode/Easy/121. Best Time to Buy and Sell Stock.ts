@@ -12,6 +12,9 @@
  *  这时候我们就可以拿到以当前 left 为起始的数组中最大差值
  *  最后再对每一段进行比较
  *
+ *  Review
+ *  2022.12.7 Bad - 没思路
+ *
  */
 
 function maxProfit(prices: number[]): number {

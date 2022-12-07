@@ -9,6 +9,9 @@
  *  如果 Hash Table 中存在该差值，则表示有这两数，返回数组
  *  如果不存在，则将 num[i] 作为 key，将 i 作为 value 存入 Hash 中
  *
+ *  Review:
+ *  2022.12.6 Good
+ *
  */
 
 function twoSum(nums: number[], target: number): number[] {

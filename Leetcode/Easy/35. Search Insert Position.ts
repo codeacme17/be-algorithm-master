@@ -7,6 +7,9 @@
  *  1. 如果当前值等于目标值，则返回当前索引
  *  2. 如果不存在，则进行比较左右大小进行插入
  *
+ *  Review:
+ *  2022.12.6 Soso
+ *
  */
 
 function searchInsert(nums: number[], target: number): number {

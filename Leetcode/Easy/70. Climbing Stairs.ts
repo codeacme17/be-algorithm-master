@@ -9,6 +9,9 @@
  *  边界：f(1)=1、f(2)=2
  *  重叠子问题：f(10)=f(9)+f(8)、f(9)=f(8)+f(7)
  *
+ *  Review
+ *  2022.12.6 Soso - 忘了创建 temp 进行转换
+ *
  */
 
 function climbStairs(n: number): number {
@@ -21,7 +24,6 @@ function climbStairs(n: number): number {
 
   for (let i = 3; i <= n; i++) {
     temp = a + b;
-
     a = b;
     b = temp;
   }

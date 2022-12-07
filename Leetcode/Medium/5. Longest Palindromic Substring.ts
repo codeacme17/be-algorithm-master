@@ -6,6 +6,11 @@
  */
 
 function longestPalindrome(s: string): string {
+  const stack: string[] = [];
+
+  for (let i of s) {
+  }
+
   return "";
 }
 

@@ -11,6 +11,9 @@
  *  最后检查stack是否为空，如果为空则表示全部匹配返回 true，
  *  如果不为空则表示不匹配，则返回 false
  *
+ *  Review:
+ *  2022.12.6 Soso - 判断逻辑有问题
+ *
  */
 
 function isValid(s: string): boolean {

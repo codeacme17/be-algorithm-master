@@ -9,6 +9,9 @@
  *  如果当前的数字是0，则移除该元素，并在数组末端加入0，并且将zeroLength+1
  *  如果不是0，则讲i+1
  *
+ *  Review
+ *  2022.12.7 Soso - 忘记了 zeroLength 和 循环条件
+ *
  */
 
 function moveZeroes(nums: number[]): void {

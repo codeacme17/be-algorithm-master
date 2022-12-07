@@ -10,6 +10,9 @@
  *  3. 将pre移动到cur
  *  4. 将temp存入cur
  *
+ *  Review
+ *  2022.12.7 Soso - 第一步将 cur 直接赋值给了 temp 导致失去原始 head 中的链表关系
+ *
  */
 
 function reverseList(head: ListNode | null): ListNode | null {

@@ -8,6 +8,9 @@
  *  如果遇到了set中的Node，则返回true，证明有自循环，
  *  循环结束，返回false
  *
+ *  Review
+ *  2022.12.7 Good
+ *
  */
 
 class ListNode {
