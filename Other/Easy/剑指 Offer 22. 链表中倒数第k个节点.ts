@@ -33,12 +33,10 @@ function getKthFromEnd(head: ListNode | null, k: number): ListNode | null {
 //   for (let i = 0; i < k; i++) {
 //     p1 = p1?.next as ListNode;
 //   }
-
 //   let p2: ListNode | null = head;
 //   while (p1) {
 //     p2 = p2?.next as ListNode;
 //     p1 = p1.next;
 //   }
-
 //   return p2;
 // }
