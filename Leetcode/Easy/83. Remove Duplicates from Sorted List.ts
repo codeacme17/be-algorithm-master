@@ -13,4 +13,16 @@ class ListNode {
   }
 }
 
-function deleteDuplicates(head: ListNode | null): ListNode | null {}
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+  let cur: ListNode | null = head;
+
+  while (cur) {
+    if (cur && cur.val === cur.next?.val) {
+      cur.next = cur.next.next;
+    } else {
+      cur = cur.next;
+    }
+  }
+
+  return head;
+}
