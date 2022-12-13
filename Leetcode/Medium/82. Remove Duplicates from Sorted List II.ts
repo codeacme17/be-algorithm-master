@@ -13,4 +13,22 @@ class ListNode {
   }
 }
 
-function deleteDuplicates(head: ListNode | null): ListNode | null {}
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+  let dummy = new ListNode(-1);
+  dummy.next = head;
+  let pre: ListNode | null = dummy;
+
+  while (head) {
+    if (head.next && head.val === head.next.val) {
+      while (head.next && head.val === head.next.val) {
+        head = head.next;
+      }
+      pre!.next = head.next;
+    } else {
+      pre = pre!.next;
+    }
+    head = head.next;
+  }
+
+  return dummy.next;
+}
