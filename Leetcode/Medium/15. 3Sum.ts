@@ -2,6 +2,11 @@
  *  15. 三数之和
  *  https://leetcode.cn/problems/3sum/
  *
+ *  思路：
+ *  有两点，在这个算法中极为重要
+ *  1. 将原数组进行排序，可以去重
+ *  2. 去重，需要在每次移动任意指针的时候，进行去重判断
+ *
  */
 
 function threeSum(nums: number[]): number[][] {
