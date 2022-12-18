@@ -18,13 +18,8 @@ function getLeft(nums: number[], target: number): number {
   while (L < R) {
     const mid = Math.floor((L + R) / 2);
 
-    if (nums[mid] === target) {
-      R = mid;
-    } else if (nums[mid] < target) {
-      L = mid + 1;
-    } else if (nums[mid] > target) {
-      R = mid;
-    }
+    if (nums[mid] < target) L = mid + 1;
+    else R = mid;
   }
 
   if (nums[L] !== target) return -1;
@@ -39,13 +34,8 @@ function getRight(nums: number[], target: number): number {
   while (L < R) {
     const mid = Math.round((L + R) / 2);
 
-    if (nums[mid] === target) {
-      L = mid;
-    } else if (nums[mid] < target) {
-      L = mid;
-    } else if (nums[mid] > target) {
-      R = mid - 1;
-    }
+    if (nums[mid] > target) R = mid - 1;
+    else L = mid;
   }
 
   if (nums[R] !== target) return -1;
