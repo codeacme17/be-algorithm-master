@@ -13,13 +13,13 @@ function searchRange(nums: number[], target: number): number[] {
 
 function getLeft(nums: number[], target: number): number {
   let L = 0;
-  let R = nums.length;
+  let R = nums.length - 1;
 
-  while (L < R) {
+  while (L <= R) {
     const mid = Math.floor((L + R) / 2);
 
     if (nums[mid] < target) L = mid + 1;
-    else R = mid;
+    else R = mid - 1;
   }
 
   if (nums[L] !== target) return -1;
@@ -31,11 +31,11 @@ function getRight(nums: number[], target: number): number {
   let L = 0;
   let R = nums.length - 1;
 
-  while (L < R) {
+  while (L <= R) {
     const mid = Math.round((L + R) / 2);
 
     if (nums[mid] > target) R = mid - 1;
-    else L = mid;
+    else L = mid + 1;
   }
 
   if (nums[R] !== target) return -1;
