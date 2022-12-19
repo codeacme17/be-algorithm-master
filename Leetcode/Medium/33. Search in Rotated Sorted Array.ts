@@ -15,11 +15,17 @@ function search(nums: number[], target: number): number {
 
     if (nums[L] > nums[R]) {
       if (nums[mid] < nums[L]) {
-        if (target > nums[mid] && target < nums[L]) L = mid + 1;
-        else R = mid - 1;
+        if (target > nums[mid] && target < nums[L]) {
+          L = mid + 1;
+        } else {
+          R = mid - 1;
+        }
       } else {
-        if (target < nums[mid] && target > nums[R]) R = mid - 1;
-        else L = mid + 1;
+        if (target < nums[mid] && target > nums[R]) {
+          R = mid - 1;
+        } else {
+          L = mid + 1;
+        }
       }
     } else if (target < nums[mid]) {
       R = mid - 1;
