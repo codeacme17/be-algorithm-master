@@ -4,7 +4,28 @@
  *
  */
 
-class NumArray {
+// 前缀和
+class NumArray1 {
+  nums: number[];
+  preNums: number[] = [];
+
+  constructor(nums: number[]) {
+    this.nums = nums;
+  }
+
+  sumRange(left: number, right: number): number {
+    this.preNums[0] = 0;
+
+    for (let i = 0; i < this.nums.length; i++) {
+      this.preNums[i + 1] = this.preNums[i] + this.nums[i];
+    }
+
+    return this.preNums[right + 1] - this.preNums[left];
+  }
+}
+
+// ===
+class NumArray2 {
   nums: number[];
 
   constructor(nums: number[]) {
@@ -20,5 +41,5 @@ class NumArray {
   }
 }
 
-const n = new NumArray([1, 2, 3]);
+const n = new NumArray1([1, 2, 3]);
 console.log(n.sumRange(1, 2));
