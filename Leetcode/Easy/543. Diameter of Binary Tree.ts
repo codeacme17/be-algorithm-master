@@ -16,5 +16,17 @@ class TreeNode {
 }
 
 function diameterOfBinaryTree(root: TreeNode | null): number {
-  return 0;
+  let max = 0;
+  traverse(root);
+  return max;
+
+  function traverse(node: TreeNode | null) {
+    if (!node) return 0;
+
+    let leftDept = traverse(node.left);
+    let rightDept = traverse(node.right);
+    max = Math.max(leftDept + rightDept, max);
+
+    return 1 + Math.max(leftDept, rightDept);
+  }
 }
