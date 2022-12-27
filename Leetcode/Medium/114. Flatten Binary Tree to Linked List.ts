@@ -25,9 +25,9 @@ function flatten(root: TreeNode | null): void {
   let tempR: TreeNode | null = root.right;
   root.left = null;
   root.right = tempL;
+
   let p: TreeNode | null = root;
-  while (p.right) {
-    p = p?.right;
-  }
+  while (p.right) p = p.right;
+
   p.right = tempR;
 }
