@@ -58,7 +58,6 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 
     let rootVal = preorder[preStart]
     let index = valToIndex.get(rootVal)
-
     let root = new TreeNode(rootVal)
     let leftSize = index - inStart
 
