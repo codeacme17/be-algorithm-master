@@ -24,10 +24,13 @@ function constructFromPrePost(
   preorder: number[],
   postorder: number[]
 ): TreeNode | null {
-  const indexMap = new Map<number, number>()
-
+  const preIndexMap = new Map<number, number>()
+  const postIndexMap = new Map<number, number>()
+  for (let i = 0; i < preorder.length; i++) {
+    preIndexMap.set(preorder[i], i)
+  }
   for (let i = 0; i < postorder.length; i++) {
-    indexMap.set(postorder[i], i)
+    postIndexMap.set(postorder[i], i)
   }
 
   return build(
@@ -47,6 +50,33 @@ function constructFromPrePost(
     postStart: number,
     postEnd: number
   ): TreeNode | null {
-    return null
+    if (preStart > preEnd) return null
+
+    let rootValue = preorder[preStart]
+    let root = new TreeNode(rootValue)
+    if (preStart === preEnd) return root
+
+    let preLeftEnd = preIndexMap.get(postorder[postEnd - 1]) - 1
+    let postRightStart = postIndexMap.get(preorder[preStart + 1]) + 1
+
+    root.left = build(
+      preorder,
+      preStart + 1,
+      preLeftEnd,
+      postorder,
+      postStart,
+      postRightStart - 1
+    )
+
+    root.right = build(
+      preorder,
+      preLeftEnd + 1,
+      preEnd,
+      postorder,
+      postRightStart,
+      postEnd - 1
+    )
+
+    return root
   }
 }
