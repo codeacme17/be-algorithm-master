@@ -56,8 +56,8 @@ function constructFromPrePost(
     let root = new TreeNode(rootValue)
     if (preStart === preEnd) return root
 
-    let preLeftEnd = preIndexMap.get(postorder[postEnd - 1]) - 1
-    let postRightStart = postIndexMap.get(preorder[preStart + 1]) + 1
+    let preLeftEnd = preIndexMap.get(postorder[postEnd - 1])! - 1
+    let postRightStart = postIndexMap.get(preorder[preStart + 1])! + 1
 
     root.left = build(
       preorder,
