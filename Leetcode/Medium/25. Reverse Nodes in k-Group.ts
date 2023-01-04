@@ -14,26 +14,28 @@ class ListNode {
 }
 
 function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
-  let n = 0
-  let i = head
-  while (i) {
-    n++
-    i = i.next
+  if (!head || !head.next || k == 1) return head
+
+  // check if the linked list has at least k nodes
+  let current: ListNode | null = head
+  for (let i = 1; i <= k; i++) {
+    if (!current) return head
+    current = current.next
   }
 
-  let dummy = new ListNode(-1)
-  dummy.next = head
-
-  for (let pre = dummy, tail = head; n >= k; n -= k) {
-    for (let i = 1; i < k; i++) {
-      let temp = tail?.next?.next
-      tail!.next!.next = pre.next
-      pre.next = tail?.next as ListNode | null
-      tail!.next = temp as ListNode | null
-    }
-    pre = tail!
-    tail = tail!.next
+  // reverse the first k nodes
+  current = head
+  let previous: ListNode | null = null
+  for (let i = 0; i < k; i++) {
+    let next = current!.next
+    current!.next = previous
+    previous = current
+    current = next
   }
 
-  return dummy.next
+  // reverse the remaining nodes
+  head.next = reverseKGroup(current, k)
+
+  // return the kth node as the head of the modified linked list
+  return previous
 }
