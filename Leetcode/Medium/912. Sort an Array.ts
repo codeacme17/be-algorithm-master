@@ -5,7 +5,8 @@
  *  思路：
  *  这道题的解题思路是使用 "归并排序" 的算法
  *  归并排序其实就是二叉树后序遍历的一个演变
- *  https://labuladong.gitee.io/algo/di-yi-zhan-da78c/shou-ba-sh-66994/gui-bing-p-1387f/
+ *  而 [lo...mid] 和 [mid+1...hi] 就是左右子树
+ *  merge 方法就是将排序好的左子树和右子树进行排序合并
  *
  */
 
