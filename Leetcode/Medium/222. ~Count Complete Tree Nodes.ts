@@ -33,5 +33,5 @@ function countNodes(root: TreeNode | null): number {
 
   if (l_depth === r_depth) return Math.pow(2, l_depth + 1) - 1
 
-  return countNodes(node.left) + countNodes(node.right) + 1
+  return countNodes(root.left) + countNodes(root.right) + 1
 }
