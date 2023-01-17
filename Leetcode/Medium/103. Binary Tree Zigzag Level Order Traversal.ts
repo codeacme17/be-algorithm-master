@@ -24,21 +24,17 @@ class TreeNode {
 
 function zigzagLevelOrder(root: TreeNode | null): number[][] {
   let res: number[][] = []
-  traverse(root, 0, res)
+  traverse(root, 0)
   return res
 
-  function traverse(
-    node: TreeNode | null,
-    layer: number,
-    res: number[][]
-  ): void {
+  function traverse(node: TreeNode | null, layer: number): void {
     if (!node) return
     if (!res[layer]) res.push([])
 
     if (layer % 2 === 0) res[layer].push(node.val)
     else res[layer].unshift(node.val)
 
-    traverse(node.left, layer + 1, res)
-    traverse(node.right, layer + 1, res)
+    traverse(node.left, layer + 1)
+    traverse(node.right, layer + 1)
   }
 }
