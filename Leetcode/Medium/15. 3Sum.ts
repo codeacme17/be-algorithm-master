@@ -7,7 +7,6 @@
  *  - 将原数组进行排序，可以去重
  *  - 去重，需要在每次移动任意指针的时候，进行去重判断
  *
- *
  */
 
 function threeSum(nums: number[]): number[][] {
