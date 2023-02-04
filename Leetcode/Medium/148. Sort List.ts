@@ -7,64 +7,63 @@
  *  2. 对两个子链表分别排序，将两个排序后的子链表合并，得到完整的排序后的链表，
  *     使用「21. 合并两个有序链表」的做法合并。
  *
- *  上述过程可以通过递归实现。
  *
  */
 
 class ListNode {
-  val: number;
-  next: ListNode | null;
+  val: number
+  next: ListNode | null
   constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
+    this.val = val === undefined ? 0 : val
+    this.next = next === undefined ? null : next
   }
 }
 
 function sortList(head: ListNode | null): ListNode | null {
-  return cut(head, null);
+  return cut(head, null)
 }
 
 function cut(head, tail) {
   if (head === null) {
-    return head;
+    return head
   }
   if (head.next === tail) {
-    head.next = null;
-    return head;
+    head.next = null
+    return head
   }
 
-  let slow = head;
-  let fast = head;
+  let slow = head
+  let fast = head
   while (fast !== tail) {
-    fast = fast.next;
-    slow = slow.next;
-    if (fast.next !== tail) {
-      fast = fast.next;
+    fast = fast.next
+    slow = slow.next
+    if (fast !== tail) {
+      fast = fast.next
     }
   }
 
-  const mid = slow;
-  return merge(cut(head, mid), cut(mid, tail));
+  const mid = slow
+  return merge(cut(head, mid), cut(mid, tail))
 }
 
 function merge(head1, head2) {
-  let dummy = new ListNode(-1);
+  let dummy = new ListNode(-1)
   let temp: ListNode | null = dummy,
     temp1 = head1,
-    temp2 = head2;
+    temp2 = head2
 
   while (temp1 && temp2) {
     if (temp1.val > temp2.val) {
-      temp!.next = temp2;
-      temp2 = temp2.next;
+      temp!.next = temp2
+      temp2 = temp2.next
     } else {
-      temp!.next = temp1;
-      temp1 = temp1.next;
+      temp!.next = temp1
+      temp1 = temp1.next
     }
-    temp = temp!.next;
+    temp = temp!.next
   }
 
-  temp!.next = temp1 || temp2;
+  temp!.next = temp1 || temp2
 
-  return dummy.next;
+  return dummy.next
 }
