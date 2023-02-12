@@ -4,9 +4,11 @@
  *
  *  ref: https://www.bilibili.com/video/BV1at411T75o/?spm_id_from=333.337.search-card.all.click
  *
+ *
  */
 
 function findKthLargest(nums: number[], k: number): number {
+  shuffle(nums)
   sort(nums, 0, nums.length - 1)
   return nums[nums.length - k]
 }
@@ -34,10 +36,15 @@ function partition(nums: number[], lo: number, hi: number): number {
   return j
 }
 
+function shuffle(nums: number[]): void {
+  let n = nums.length
+  let shuffled = nums.slice()
+
+  for (let i = 0; i < n; i++) swap(shuffled, i, Math.floor(Math.random() * n))
+}
+
 function swap(nums: number[], lo: number, hi: number): void {
-  let temp = nums[lo]
-  nums[lo] = nums[hi]
-  nums[hi] = temp
+  ;[nums[lo], nums[hi]] = [nums[hi], nums[lo]]
 }
 
 findKthLargest([3, 1, 5, 6, 2], 0)
