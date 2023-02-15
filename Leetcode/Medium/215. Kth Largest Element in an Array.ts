@@ -4,6 +4,10 @@
  *
  *  ref: https://www.bilibili.com/video/BV1at411T75o/?spm_id_from=333.337.search-card.all.click
  *
+ *  难点：
+ *  本题在 partition 中对于边界的判断十分重要，也容易混淆
+ *
+ *
  */
 
 function findKthLargest(nums: number[], k: number): number {
