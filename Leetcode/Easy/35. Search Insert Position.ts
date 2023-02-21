@@ -2,29 +2,25 @@
  *  35. 搜索插入位置
  *  https://leetcode.com/problems/search-insert-position/
  *
- *  思路：
- *  遍历数组，创建判定条件
- *  1. 如果当前值等于目标值，则返回当前索引
- *  2. 如果不存在，则进行比较左右大小进行插入
- *
- *  Review:
- *  2022.12.6 Soso
+ *  思路：二分查找
+ *  当 L === R 的时候，表示没有数组中不存在 target
+ *  返回 L 即代表要插入的位置
  *
  */
 
 function searchInsert(nums: number[], target: number): number {
-  let result = 0;
+  let L = 0
+  let R = nums.length - 1
 
-  for (let i = 0; i < nums.length; i++) {
-    // Existed
-    if (nums[i] === target) result = i;
+  while (L <= R) {
+    let M = Math.floor((L + R) / 2)
 
-    // Insert
-    if (nums[i - 1] < target && target < nums[i]) result = i;
-    if (nums[nums.length - 1] < target) result = i + 1;
+    if (nums[M] === target) return M
+    if (nums[M] < target) L = M + 1
+    else R = M - 1
   }
 
-  return result;
+  return L
 }
 
-console.log(searchInsert([3, 5, 7], 4));
+console.log(searchInsert([3, 5, 7], 4))
