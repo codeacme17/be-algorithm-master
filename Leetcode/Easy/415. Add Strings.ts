@@ -8,22 +8,22 @@
  */
 
 function addStrings(num1: string, num2: string): string {
-  let i1 = num1.length - 1;
-  let i2 = num2.length - 1;
-  let carry = 0;
-  let res = "";
+  let p1 = num1.length - 1
+  let p2 = num2.length - 1
+  let carry = 0
+  let res: number[] = []
 
-  while (i1 >= 0 || i2 >= 0 || carry > 0) {
-    let v1: any = num1[i1] ? num1[i1] : "0";
-    let v2: any = num2[i2] ? num2[i2] : "0";
-    let sum = v1 * 1 + v2 * 1 + carry;
-    res = `${sum % 10}${res}`;
-    carry = Math.floor(sum / 10);
-    i1--;
-    i2--;
+  while (p1 >= 0 || p2 >= 0 || carry) {
+    const v1 = Number(num1[p1]) || 0
+    const v2 = Number(num2[p2]) || 0
+    const sum = v1 + v2 + carry
+    carry = Math.floor(sum / 10)
+    res.push(sum % 10)
+    p1--
+    p2--
   }
 
-  return res;
+  return res.reverse().join("")
 }
 
-console.log(addStrings("173", "233"));
+console.log(addStrings("11", "123"))
