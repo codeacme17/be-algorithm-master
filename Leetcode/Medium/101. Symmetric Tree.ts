@@ -31,7 +31,10 @@ function isSymmetric(root: TreeNode | null): boolean {
     if (!left && !right) return true
     if (!left || !right) return false
 
-    if (left.val !== right.val) return true
+    // 这里需要判断，左右子节点是否不同
+    // 如果不同，那么就表示左右并不”镜像“
+    if (left.val !== right.val) return false
+
     return (
       traverse(left.left, right.right) &&
       traverse(right.left, left.right)
