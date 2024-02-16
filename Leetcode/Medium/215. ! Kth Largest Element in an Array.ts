@@ -4,48 +4,41 @@
  *
  *  ref: https://www.bilibili.com/video/BV1at411T75o/?spm_id_from=333.337.search-card.all.click
  *
- *  难点：
- *  本题在 partition 中对于边界的判断十分重要，也容易混淆
- *
+ *  核心思路：快速选择
+ *  其内核还是快速排序
+ *  首先定义一个 pivot，
+ *  确保每次递归的时候，左子序列都比 pivot 小，右子序列都比 pivot 大
+ *  然后再对左侧和右侧的子序列进行排序
  *
  */
 
 function findKthLargest(nums: number[], k: number): number {
-  shuffle(nums)
-  sort(nums, 0, nums.length - 1)
-  return nums[nums.length - k]
+  k = nums.length - k
+  return quickSelect(nums, 0, nums.length - 1, k)
 }
 
-function sort(nums: number[], lo: number, hi: number): void {
-  if (lo >= hi) return
-  let p = partition(nums, lo, hi)
-  sort(nums, lo, p - 1)
-  sort(nums, p + 1, hi)
-}
+function quickSelect(nums: number[], start: number, end: number, k: number) {
+  const mid = start + Math.floor((end - start) / 2)
+  const pivot = nums[mid]
+  let l = start
+  let r = end
 
-function partition(nums: number[], lo: number, hi: number): number {
-  let pivot = nums[lo]
-  let i = lo + 1
-  let j = hi
+  while (l <= r) {
+    while (nums[l] < pivot) l++
+    while (nums[r] > pivot) r--
 
-  while (i <= j) {
-    while (i <= j && nums[i] <= pivot) i++
-    while (i <= j && nums[j] > pivot) j--
-    if (i >= j) break
-    swap(nums, i, j)
+    if (l <= r) {
+      swap(nums, l, r)
+      l++
+      r--
+    }
   }
 
-  swap(nums, lo, j)
-  return j
+  if (k <= r) return quickSelect(nums, start, r, k)
+  else if (k >= l) return quickSelect(nums, l, end, k)
+  else return nums[mid]
 }
 
-function shuffle(nums: number[]): void {
-  let n = nums.length
-  for (let i = 0; i < n; i++) swap(nums, i, Math.floor(Math.random() * n))
+function swap(nums: number[], p: number, q: number) {
+  ;[nums[p], nums[q]] = [nums[q], nums[p]]
 }
-
-function swap(nums: number[], lo: number, hi: number): void {
-  ;[nums[lo], nums[hi]] = [nums[hi], nums[lo]]
-}
-
-findKthLargest([3, 1, 5, 6, 2], 0)
